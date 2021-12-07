@@ -40,7 +40,7 @@ function App() {
 	}
 	const handle_loginFormField_password = (e) => {
 		let password = e.target.value;
-		setLoginFormField_login(password);
+		setLoginFormField_password(password);
 	}
 	const handle_loginForm_loginButton = async (e) => {
 		e.preventDefault();
@@ -196,7 +196,7 @@ function App() {
 							Welcome to this site.
 						</div>
 					)}
-					{currentUserIsInGroup('notApprovedUsers') && (
+					{currentUserIsInGroup('notYetApprovedUsers') && (
 						<>
 							<div className="panel">
 								<h3>Thank you for registering!</h3>
