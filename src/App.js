@@ -12,7 +12,21 @@ function App() {
 	const [signupFormField_lastName, setSignupFormField_lastName] = useState('');
 	const [signupFormField_email, setSignupFormField_email] = useState('');
 
+	const [notYetApprovedUsers, setNotYetApprovedUsers] = useState([]);
+
 	const [currentUser, setCurrentUser] = useState({});
+
+	const loadNotYetApprovedUsers = async () => {
+		const requestOptions = {
+			method: 'GET',
+			credentials: 'include'
+		};
+		const response = await fetch('http://localhost:3003/notyetapprovedusers', requestOptions);
+		if (response.ok) {
+			const data = await response.json();
+			setNotYetApprovedUsers(prev => ([...data.users]));
+		}
+	}
 
 	useEffect(() => {
 		(async () => {
@@ -20,11 +34,11 @@ function App() {
 				method: 'GET',
 				credentials: 'include'
 			};
-			const response = await fetch('http://localhost:3003/currentuser', requestOptions);
-			if (response.ok) {
+			const response = await fetch('http://localhost:3003/currentuser', requestOptions); if (response.ok) {
 				const data = await response.json();
 				setCurrentUser(prev => ({ ...prev, ...data.user }));
 			}
+			loadNotYetApprovedUsers();
 		})();
 	}, []);
 
@@ -56,6 +70,7 @@ function App() {
 			setCurrentUser(prev => ({ ...prev, ..._currentUser }));
 			setLoginFormField_login('');
 			setLoginFormField_password('');
+			loadNotYetApprovedUsers();
 		}
 	}
 
@@ -202,7 +217,6 @@ function App() {
 								<h3>Thank you for registering!</h3>
 								An administrator will approve your account as soon as possible.
 							</div>
-
 						</>
 					)}
 					{currentUserIsInGroup('members') && (
@@ -230,15 +244,27 @@ function App() {
 						<>
 							<div className="panel">
 								<h3>Admin Section:</h3>
-								<div>
-									<button>Create users</button>
-								</div>
-								<div>
-									<button>Edit users</button>
-								</div>
-								<div>
-									<button>Delete users</button>
-								</div>
+								<h4>{notYetApprovedUsers.length} Users to Approve:</h4>
+								<table className="minimalistBlack">
+									<thead>
+										<tr>
+											<th>First Name</th>
+											<th>Last Name</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										{notYetApprovedUsers.map((user, index) => {
+											return (
+												<tr key={index}>
+													<td>{user.firstName}</td>
+													<td>{user.lastName}</td>
+													<td><button>Approve</button></td>
+												</tr>
+											)
+										})}
+									</tbody>
+								</table>
 							</div>
 						</>
 					)}
