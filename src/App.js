@@ -134,11 +134,7 @@ function App() {
 			method: 'POST',
 			credentials: "include",
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(
-				{
-					id
-				}
-			),
+			body: JSON.stringify({id}),
 		};
 		const response = await fetch('http://localhost:3003/approveuser', requestOptions);
 		if (response.ok) {
