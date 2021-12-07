@@ -129,6 +129,23 @@ function App() {
 		}
 	}
 
+	const handle_approveUserButton = async (id) => {
+		const requestOptions = {
+			method: 'POST',
+			credentials: "include",
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(
+				{
+					id
+				}
+			),
+		};
+		const response = await fetch('http://localhost:3003/approveuser', requestOptions);
+		if (response.ok) {
+			await response.json();
+			loadNotYetApprovedUsers();
+		}
+	}
 
 	const handle_logoutForm_logoutButton = async (e) => {
 		const requestOptions = {
@@ -259,7 +276,7 @@ function App() {
 												<tr key={index}>
 													<td>{user.firstName}</td>
 													<td>{user.lastName}</td>
-													<td><button>Approve</button></td>
+													<td><button onClick={() => handle_approveUserButton(user._id)}>Approve</button></td>
 												</tr>
 											)
 										})}
