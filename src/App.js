@@ -107,12 +107,14 @@ function App() {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(
 				{
-					login: signupFormField_login,
-					password1: signupFormField_password1,
-					password2: signupFormField_password2,
-					firstName: signupFormField_firstName,
-					lastName: signupFormField_lastName,
-					email: signupFormField_email,
+					user: {
+						login: signupFormField_login,
+						password1: signupFormField_password1,
+						password2: signupFormField_password2,
+						firstName: signupFormField_firstName,
+						lastName: signupFormField_lastName,
+						email: signupFormField_email
+					}
 				}
 			),
 		};
@@ -134,7 +136,7 @@ function App() {
 			method: 'POST',
 			credentials: "include",
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({id}),
+			body: JSON.stringify({ id }),
 		};
 		const response = await fetch('http://localhost:3003/approveuser', requestOptions);
 		if (response.ok) {
