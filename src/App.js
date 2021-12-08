@@ -1,4 +1,3 @@
-import { AppProvider } from './AppContext.js';
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './App.scss';
@@ -135,126 +134,124 @@ function App() {
 	}
 
 	return (
-		<AppProvider>
-			<div className="App">
-				{currentUser.login && (
-					<>
-						<h1>MERN Showcase App</h1>
-						<Nav />
-						<div className="content">
-							<Routes>
-								<Route path="/" element={<PageWelcome />} />
-								<Route path="register" element={<PageRegister />} />
-								<Route path="login" element={<PageLogin />} />
-							</Routes>
-						</div>
+		<div className="App">
+			{currentUser.login && (
+				<>
+					<h1>MERN Showcase App</h1>
+					<Nav />
+					<div className="content">
+						<Routes>
+							<Route path="/" element={<PageWelcome />} />
+							<Route path="register" element={<PageRegister />} />
+							<Route path="login" element={<PageLogin />} />
+						</Routes>
+					</div>
 
 
 
-						{currentUserIsInGroup('loggedInUsers') && (
-							<h2>{currentUser.firstName} {currentUser.lastName}</h2>
-						)}
-						{currentUserIsInGroup('loggedInUsers') && (
-							<div><button onClick={handle_logoutForm_logoutButton}>Logout</button></div>
-						)}
-						{currentUserIsInGroup('loggedOutUsers') && (
-							<>
-								<form>
-									<fieldset>
-										<legend>Signup</legend>
-										<div className="row">
-											<label htmlFor="signupFormField_login">Login</label>
-											<input type="text" id="signupFormField_login" value={signupFormField_login} onChange={handle_signupFormField_login} />
-										</div>
-										<div className="row">
-											<label htmlFor="signupFormField_password1">Password 1</label>
-											<input type="password" id="signupFormField_password1" value={signupFormField_password1} onChange={handle_signupFormField_password1} />
-										</div>
-										<div className="row">
-											<label htmlFor="signupFormField_password2">Password 2</label>
-											<input type="password" id="signupFormField_password2" value={signupFormField_password2} onChange={handle_signupFormField_password2} />
-										</div>
-										<div className="row">
-											<label htmlFor="signupFormField_firstName">First Name</label>
-											<input type="text" id="signupFormField_firstName" value={signupFormField_firstName} onChange={handle_signupFormField_firstName} />
-										</div>
-										<div className="row">
-											<label htmlFor="signupFormField_lastName">Last Name</label>
-											<input type="text" id="signupFormField_lastName" value={signupFormField_lastName} onChange={handle_signupFormField_lastName} />
-										</div>
-										<div className="row">
-											<label htmlFor="signupFormField_email">E-Mail</label>
-											<input type="text" id="signupFormField_email" value={signupFormField_email} onChange={handle_signupFormField_email} />
-										</div>
-										<div className="buttonRow">
-											<button onClick={handle_signupForm_signupButton}>Submit</button>
-										</div>
-									</fieldset>
-								</form>
-							</>
-						)}
-
-						{currentUserIsInGroup('notYetApprovedUsers') && (
-							<>
-								<div className="panel">
-									<h3>Thank you for registering!</h3>
-									An administrator will approve your account as soon as possible.
-								</div>
-							</>
-						)}
-						{currentUserIsInGroup('members') && (
-							<>
-								<div className="panel">
-									<h3>Current Site News for Members</h3>
-									<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque explicabo voluptate quia asperiores sit! Vel molestiae labore ratione non dolores? Exercitationem soluta quo id laboriosam, autem perferendis? Fuga, suscipit ipsa.</p>
-								</div>
-							</>
-						)}
-						{currentUserIsInGroup('contentEditors') && (
-							<>
-								<div className="panel">
-									<h3>Content Editor Section:</h3>
-									<div>
-										<button>Edit Welcome Page</button>
+					{currentUserIsInGroup('loggedInUsers') && (
+						<h2>{currentUser.firstName} {currentUser.lastName}</h2>
+					)}
+					{currentUserIsInGroup('loggedInUsers') && (
+						<div><button onClick={handle_logoutForm_logoutButton}>Logout</button></div>
+					)}
+					{currentUserIsInGroup('loggedOutUsers') && (
+						<>
+							<form>
+								<fieldset>
+									<legend>Signup</legend>
+									<div className="row">
+										<label htmlFor="signupFormField_login">Login</label>
+										<input type="text" id="signupFormField_login" value={signupFormField_login} onChange={handle_signupFormField_login} />
 									</div>
-									<div>
-										<button>Create New Page</button>
+									<div className="row">
+										<label htmlFor="signupFormField_password1">Password 1</label>
+										<input type="password" id="signupFormField_password1" value={signupFormField_password1} onChange={handle_signupFormField_password1} />
 									</div>
+									<div className="row">
+										<label htmlFor="signupFormField_password2">Password 2</label>
+										<input type="password" id="signupFormField_password2" value={signupFormField_password2} onChange={handle_signupFormField_password2} />
+									</div>
+									<div className="row">
+										<label htmlFor="signupFormField_firstName">First Name</label>
+										<input type="text" id="signupFormField_firstName" value={signupFormField_firstName} onChange={handle_signupFormField_firstName} />
+									</div>
+									<div className="row">
+										<label htmlFor="signupFormField_lastName">Last Name</label>
+										<input type="text" id="signupFormField_lastName" value={signupFormField_lastName} onChange={handle_signupFormField_lastName} />
+									</div>
+									<div className="row">
+										<label htmlFor="signupFormField_email">E-Mail</label>
+										<input type="text" id="signupFormField_email" value={signupFormField_email} onChange={handle_signupFormField_email} />
+									</div>
+									<div className="buttonRow">
+										<button onClick={handle_signupForm_signupButton}>Submit</button>
+									</div>
+								</fieldset>
+							</form>
+						</>
+					)}
+
+					{currentUserIsInGroup('notYetApprovedUsers') && (
+						<>
+							<div className="panel">
+								<h3>Thank you for registering!</h3>
+								An administrator will approve your account as soon as possible.
+							</div>
+						</>
+					)}
+					{currentUserIsInGroup('members') && (
+						<>
+							<div className="panel">
+								<h3>Current Site News for Members</h3>
+								<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque explicabo voluptate quia asperiores sit! Vel molestiae labore ratione non dolores? Exercitationem soluta quo id laboriosam, autem perferendis? Fuga, suscipit ipsa.</p>
+							</div>
+						</>
+					)}
+					{currentUserIsInGroup('contentEditors') && (
+						<>
+							<div className="panel">
+								<h3>Content Editor Section:</h3>
+								<div>
+									<button>Edit Welcome Page</button>
 								</div>
-							</>
-						)}
-						{currentUserIsInGroup('admins') && (
-							<>
-								<div className="panel">
-									<h3>Admin Section:</h3>
-									<h4>{notYetApprovedUsers.length} Users to Approve:</h4>
-									<table className="minimalistBlack">
-										<thead>
-											<tr>
-												<th>First Name</th>
-												<th>Last Name</th>
-												<th></th>
-											</tr>
-										</thead>
-										<tbody>
-											{notYetApprovedUsers.map((user, index) => {
-												return (
-													<tr key={index}>
-														<td>{user.firstName}</td>
-														<td>{user.lastName}</td>
-														<td><button onClick={() => handle_approveUserButton(user._id)}>Approve</button></td>
-													</tr>
-												)
-											})}
-										</tbody>
-									</table>
+								<div>
+									<button>Create New Page</button>
 								</div>
-							</>
-						)}
-					</>
-				)}
-			</div>
-		</AppProvider>
+							</div>
+						</>
+					)}
+					{currentUserIsInGroup('admins') && (
+						<>
+							<div className="panel">
+								<h3>Admin Section:</h3>
+								<h4>{notYetApprovedUsers.length} Users to Approve:</h4>
+								<table className="minimalistBlack">
+									<thead>
+										<tr>
+											<th>First Name</th>
+											<th>Last Name</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										{notYetApprovedUsers.map((user, index) => {
+											return (
+												<tr key={index}>
+													<td>{user.firstName}</td>
+													<td>{user.lastName}</td>
+													<td><button onClick={() => handle_approveUserButton(user._id)}>Approve</button></td>
+												</tr>
+											)
+										})}
+									</tbody>
+								</table>
+							</div>
+						</>
+					)}
+				</>
+			)}
+		</div>
 	);
 }
 
