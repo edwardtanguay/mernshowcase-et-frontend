@@ -8,7 +8,9 @@ const Nav = () => {
 		<nav>
 			<ul>
 				<li><NavLink to="/">Welcome</NavLink></li>
-				<li><NavLink to="register">Register</NavLink></li>
+				{currentUserIsInGroup('loggedOutUsers') && (
+					<li><NavLink to="register">Register</NavLink></li>
+				)}
 				{currentUserIsInGroup('admins') && (
 					<li><NavLink to="admin">Admin</NavLink></li>
 				)}
