@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react';
 import './App.scss';
+import { Routes, Route } from 'react-router-dom';
+
+import Nav from './components/Nav';
+import PageWelcome from './pages/PageWelcome';
+import PageRegister from './pages/PageRegister';
+import PageLogin from './pages/PageLogin';
 
 function App() {
 	const [loginFormField_login, setLoginFormField_login] = useState('');
@@ -162,6 +168,17 @@ function App() {
 			{currentUser.login && (
 				<>
 					<h1>MERN Showcase App</h1>
+					<Nav />
+					<div className="content">
+						<Routes>
+							<Route path="/" element={<PageWelcome />} />
+							<Route path="register" element={<PageRegister />} />
+							<Route path="login" element={<PageLogin />} />
+						</Routes>
+					</div>
+
+
+
 					{currentUserIsInGroup('loggedInUsers') && (
 						<h2>{currentUser.firstName} {currentUser.lastName}</h2>
 					)}
