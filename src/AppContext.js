@@ -9,11 +9,21 @@ export const AppProvider = ({ children }) => {
 		setSiteStatus(siteStatus === 'development' ? 'live' : 'development');
 	}
 
+	const [currentUser, setCurrentUser] = useState({});
+
+	const currentUserIsInGroup = (accessGroup) => {
+		const accessGroupArray = currentUser.accessGroups.split(',').map(m => m.trim());
+		return accessGroupArray.includes(accessGroup);
+	}
+
 	return (
 		<AppContext.Provider value={{
 			siteStatus,
 			setSiteStatus,
-			toggleStatus
+			toggleStatus,
+			currentUser,
+			setCurrentUser,
+			currentUserIsInGroup
 		}} >
 			{children}
 		</AppContext.Provider>
