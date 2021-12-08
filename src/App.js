@@ -5,8 +5,9 @@ import './App.scss';
 import Nav from './components/Nav';
 import PageWelcome from './pages/PageWelcome';
 import PageRegister from './pages/PageRegister';
-import PageLogin from './pages/PageLogin';
 import PageAdmin from './pages/PageAdmin';
+import PageLogin from './pages/PageLogin';
+import PageLogout from './pages/PageLogout';
 
 import { useContext } from 'react';
 import AppContext from './AppContext';
@@ -40,8 +41,9 @@ function App() {
 						<Routes>
 							<Route path="/" element={<PageWelcome />} />
 							<Route path="register" element={<PageRegister />} />
-							<Route path="login" element={<PageLogin />} />
 							<Route path="admin" element={<PageAdmin />} />
+							<Route path="login" element={<PageLogin />} />
+							<Route path="logout" element={<PageLogout />} />
 						</Routes>
 					</div>
 

@@ -1,11 +1,13 @@
 import { useContext } from 'react';
 import AppContext from '../AppContext';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const PageLogin = () => {
 	const { setCurrentUser, currentUserIsInGroup } = useContext(AppContext);
 	const [loginFormField_login, setLoginFormField_login] = useState('');
 	const [loginFormField_password, setLoginFormField_password] = useState('');
+	const navigate = useNavigate();
 
 	// LOGIN FORM FIELD HANDLERS
 	const handle_loginFormField_login = (e) => {
@@ -30,6 +32,7 @@ const PageLogin = () => {
 			setCurrentUser(prev => ({ ...prev, ..._currentUser }));
 			setLoginFormField_login('');
 			setLoginFormField_password('');
+			navigate('/');
 		}
 	}
 	const handle_logoutForm_logoutButton = async (e) => {
@@ -52,7 +55,6 @@ const PageLogin = () => {
 			{currentUserIsInGroup('loggedOutUsers') && (
 				<form>
 					<fieldset>
-						<legend>Login</legend>
 						<div className="row">
 							<label htmlFor="loginFormField_login">Login</label>
 							<input type="text" id="loginFormField_login" value={loginFormField_login} onChange={handle_loginFormField_login} />

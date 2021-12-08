@@ -13,6 +13,11 @@ const PageWelcome = () => {
 					</div>
 				</>
 			)}
+			{currentUserIsInGroup('loggedOutUsers') && (
+				<>
+<p>Welcome to this site.</p>
+				</>
+			)}
 			{currentUserIsInGroup('members') && (
 				<>
 					<div className="panel">

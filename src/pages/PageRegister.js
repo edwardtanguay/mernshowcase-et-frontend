@@ -1,8 +1,10 @@
 import { useContext, useState } from 'react';
 import AppContext from '../AppContext';
+import { useNavigate } from 'react-router-dom';
 
 const PageRegister = () => {
 	const { setCurrentUser, currentUserIsInGroup } = useContext(AppContext);
+	const navigate = useNavigate();
 
 	const [signupFormField_login, setSignupFormField_login] = useState('');
 	const [signupFormField_password1, setSignupFormField_password1] = useState('');
@@ -65,6 +67,7 @@ const PageRegister = () => {
 			setSignupFormField_firstName('');
 			setSignupFormField_lastName('');
 			setSignupFormField_email('');
+			navigate('/');
 		}
 	}
 	return (
@@ -73,7 +76,6 @@ const PageRegister = () => {
 				<>
 					<form>
 						<fieldset>
-							<legend>Signup</legend>
 							<div className="row">
 								<label htmlFor="signupFormField_login">Login</label>
 								<input type="text" id="signupFormField_login" value={signupFormField_login} onChange={handle_signupFormField_login} />

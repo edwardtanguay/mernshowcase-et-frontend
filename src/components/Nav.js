@@ -14,7 +14,12 @@ const Nav = () => {
 				{currentUserIsInGroup('admins') && (
 					<li><NavLink to="admin">Admin</NavLink></li>
 				)}
-				<li><NavLink to="login">Login</NavLink></li>
+				{currentUserIsInGroup('loggedOutUsers') && (
+					<li><NavLink to="login">Login</NavLink></li>
+				)}
+				{currentUserIsInGroup('loggedInUsers') && (
+					<li><NavLink to="logout">Logout</NavLink></li>
+				)}
 			</ul>
 		</nav>
 	)
