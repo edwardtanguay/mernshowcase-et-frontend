@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import AppContext from '../AppContext';
 
 const PageAdmin = () => {
-	const { siteStatus, currentUserIsInGroup } = useContext(AppContext);
+	const { currentUserIsInGroup } = useContext(AppContext);
 	const [notYetApprovedUsers, setNotYetApprovedUsers] = useState([]);
 
 	useEffect(() => {
@@ -39,10 +39,6 @@ const PageAdmin = () => {
 
 	return (
 		<>
-			<p>This is the admin page. </p>
-			<p>The current status is: <span className="highlight">{siteStatus}</span></p>
-
-
 			{currentUserIsInGroup('admins') && (
 				<>
 					<div className="panel">

@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import AppContext from '../AppContext';
 
 const PageRegister = () => {
-	const { siteStatus, setCurrentUser, currentUserIsInGroup } = useContext(AppContext);
+	const { setCurrentUser, currentUserIsInGroup } = useContext(AppContext);
 
 	const [signupFormField_login, setSignupFormField_login] = useState('');
 	const [signupFormField_password1, setSignupFormField_password1] = useState('');
@@ -69,9 +69,6 @@ const PageRegister = () => {
 	}
 	return (
 		<>
-			<p>This is the register page. </p>
-			<p>The current status is: <span className="highlight">{siteStatus}</span></p>
-
 			{currentUserIsInGroup('loggedOutUsers') && (
 				<>
 					<form>

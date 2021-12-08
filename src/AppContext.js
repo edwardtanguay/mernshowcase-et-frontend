@@ -3,11 +3,6 @@ import { createContext, useState } from 'react';
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-	const [siteStatus, setSiteStatus] = useState('development');
-
-	const toggleStatus = () => {
-		setSiteStatus(siteStatus === 'development' ? 'live' : 'development');
-	}
 
 	const [currentUser, setCurrentUser] = useState({});
 
@@ -18,9 +13,6 @@ export const AppProvider = ({ children }) => {
 
 	return (
 		<AppContext.Provider value={{
-			siteStatus,
-			setSiteStatus,
-			toggleStatus,
 			currentUser,
 			setCurrentUser,
 			currentUserIsInGroup
