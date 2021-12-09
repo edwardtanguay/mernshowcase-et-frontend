@@ -46,9 +46,6 @@ function App() {
 							<Route path="logout" element={<PageLogout />} />
 						</Routes>
 					</div>
-
-
-
 				</>
 			)}
 		</div>
