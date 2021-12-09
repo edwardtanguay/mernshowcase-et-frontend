@@ -57,7 +57,7 @@ const PageRegister = () => {
 				}
 			),
 		};
-		const response = await fetch('http://localhost:3003/signup', requestOptions);
+		const response = await fetch(`${process.env.BACKEND_URL}/signup`, requestOptions);
 		if (response.ok) {
 			const _currentUser = await response.json();
 			setCurrentUser(prev => ({ ...prev, ..._currentUser }));

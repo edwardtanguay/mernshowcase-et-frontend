@@ -21,7 +21,7 @@ function App() {
 				method: 'GET',
 				credentials: 'include'
 			};
-			const response = await fetch('http://localhost:3003/currentuser', requestOptions); if (response.ok) {
+			const response = await fetch(`${process.env.BACKEND_URL}/currentuser`, requestOptions); if (response.ok) {
 				const data = await response.json();
 				setCurrentUser(prev => ({ ...prev, ...data.user }));
 			}

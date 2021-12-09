@@ -18,7 +18,7 @@ const PageAdmin = () => {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ id }),
 		};
-		const response = await fetch('http://localhost:3003/approveuser', requestOptions);
+		const response = await fetch(`${process.env.BACKEND_URL}/approveuser`, requestOptions);
 		if (response.ok) {
 			await response.json();
 			loadNotYetApprovedUsers();
@@ -30,7 +30,7 @@ const PageAdmin = () => {
 			method: 'GET',
 			credentials: 'include'
 		};
-		const response = await fetch('http://localhost:3003/notyetapprovedusers', requestOptions);
+		const response = await fetch(`${process.env.BACKEND_URL}/notyetapprovedusers`, requestOptions);
 		if (response.ok) {
 			const data = await response.json();
 			setNotYetApprovedUsers(prev => ([...data.users]));

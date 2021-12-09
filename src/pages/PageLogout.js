@@ -11,7 +11,7 @@ const PageLogout = () => {
 			method: 'GET',
 			credentials: 'include'
 		};
-		const response = await fetch('http://localhost:3003/logout', requestOptions);
+		const response = await fetch(`${process.env.BACKEND_URL}/logout`, requestOptions);
 		if (response.ok) {
 			const _currentUser = await response.json();
 			setCurrentUser(prev => ({ ...prev, ..._currentUser }));
