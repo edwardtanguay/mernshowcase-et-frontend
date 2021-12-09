@@ -23,6 +23,7 @@ function App() {
 			};
 			const response = await fetch(`${process.env.BACKEND_URL}/currentuser`, requestOptions); if (response.ok) {
 				const data = await response.json();
+				console.log(data);
 				setCurrentUser(prev => ({ ...prev, ...data.user }));
 			}
 		})();
