@@ -30,6 +30,7 @@ function App() {
 
 	return (
 		<div className="App">
+			<div>testing</div>
 			{currentUser.login && (
 				<>
 					<h1>MERN Showcase App</h1>
