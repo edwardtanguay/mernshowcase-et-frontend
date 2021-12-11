@@ -21,9 +21,9 @@ function App() {
 				method: 'GET',
 				credentials: 'include'
 			};
-			const response = await fetch(`${process.env.BACKEND_URL}/currentuser`, requestOptions); if (response.ok) {
+			const url = `${process.env.REACT_APP_BACKEND_URL}/currentuser`;
+			const response = await fetch(url, requestOptions); if (response.ok) {
 				const data = await response.json();
-				console.log(data);
 				setCurrentUser(prev => ({ ...prev, ...data.user }));
 			}
 		})();
@@ -31,7 +31,6 @@ function App() {
 
 	return (
 		<div className="App">
-			<div>testing</div>
 			{currentUser.login && (
 				<>
 					<h1>MERN Showcase App</h1>
