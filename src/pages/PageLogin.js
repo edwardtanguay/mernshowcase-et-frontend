@@ -26,7 +26,9 @@ const PageLogin = () => {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ login: loginFormField_login, password: loginFormField_password }),
 		};
-		const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/login`, requestOptions);
+		const url = `${process.env.REACT_APP_BACKEND_URL}/login`;
+		console.log('back url', url);
+		const response = await fetch(url, requestOptions);
 		if (response.ok) {
 			const _currentUser = await response.json();
 			setCurrentUser(prev => ({ ...prev, ..._currentUser }));
