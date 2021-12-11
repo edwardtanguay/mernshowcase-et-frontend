@@ -26,7 +26,7 @@ const PageLogin = () => {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ login: loginFormField_login, password: loginFormField_password }),
 		};
-		const response = await fetch(`${process.env.BACKEND_URL}/login`, requestOptions);
+		const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/login`, requestOptions);
 		if (response.ok) {
 			const _currentUser = await response.json();
 			setCurrentUser(prev => ({ ...prev, ..._currentUser }));
@@ -40,7 +40,7 @@ const PageLogin = () => {
 			method: 'GET',
 			credentials: 'include'
 		};
-		const response = await fetch(`${process.env.BACKEND_URL}/logout`, requestOptions);
+		const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/logout`, requestOptions);
 		if (response.ok) {
 			const _currentUser = await response.json();
 			setCurrentUser(prev => ({ ...prev, ..._currentUser }));
