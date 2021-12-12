@@ -22,7 +22,8 @@ function App() {
 				credentials: 'include'
 			};
 			const url = `${process.env.REACT_APP_BACKEND_URL}/currentuser`;
-			const response = await fetch(url, requestOptions); if (response.ok) {
+			const response = await fetch(url, requestOptions);
+			if (response.ok) {
 				const data = await response.json();
 				setCurrentUser(prev => ({ ...prev, ...data.user }));
 			}
