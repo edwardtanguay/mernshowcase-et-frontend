@@ -1,2 +1,49 @@
-- .env
-	- BACKEND_URL
+- x basics
+	- x Node/Express API
+	- x React frontend
+	- x MVC/Mongoose
+	- x session/cookie authentication
+	- x authentication with access groups
+	- x new user signup
+	- x new user approval
+	- x React Router and UseContext
+	- x deployed to Heroku/MongoDB-Atlas
+
+- .. clean up and basic UX
+	- .. check password on login
+	- logout works at one click on 
+	- focus fields
+	- convert forms to formik and add validation
+	- smartPlural for users, create qtools
+	- signup
+		- check if user exists already
+		- check if passwords are the same
+	
+- refactor
+	- automatic redirect from http to https
+	- implement controllers for Mongoose
+	- responsive
+	- 
+	- for forms: convert useState to useReduce
+	- user profile page: change name, password, etc.
+	- admin user management section: edit user information
+		- use same component at in user profile
+	- responsive layout
+
+- new features
+	- socket.io
+		- show logged in users
+		- live member chat
+		- automatic notification that one has been confirmed as a member
+	- e-mail confirmation on signup
+		- two levels: emailUnconfirmedUsers --> emailConfirmedUsers --> members
+		- node-mailer?
+	- image uploading (on user profile to upload profile image)
+	- testing (Jest and Cypress)
+	- ein schickes Chat oder interaktives Spiel für mehrere eingeloggte Users mit socket.io
+	- Netlify function for userIsInGroup (call from both frontend and backend)
+	- set up second and third frontends on Vercel and Netlify 
+	- add ability to choose authentication method
+		- login/password with sessions/cookies
+		- login/password with JWT authentication 
+		- OAuth authentication with Passport/JWT
