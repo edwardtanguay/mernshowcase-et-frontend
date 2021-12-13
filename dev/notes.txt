@@ -21,6 +21,7 @@
 	
 - refactor
 	- automatic redirect from http to https
+		- e.g. express-sslify: https://stackoverflow.com/questions/51234023/heroku-nodejs-redirect-http-to-https
 	- implement controllers for Mongoose
 	- responsive
 	- 
