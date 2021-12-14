@@ -9,6 +9,9 @@
 	- x React Router and UseContext
 	- x deployed to Heroku/MongoDB-Atlas
 
+- fix http issue
+	- .. put on Netlify
+	
 - .. clean up and basic UX
 	- .. check password on login
 	- concurrently

@@ -32,6 +32,7 @@ function App() {
 
 	return (
 		<div className="App">
+			[{process.env.REACT_APP_BACKEND_URL}]
 			{currentUser.login && (
 				<>
 					<h1>MERN Showcase App</h1>
