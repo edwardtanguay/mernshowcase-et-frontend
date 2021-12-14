@@ -8,9 +8,10 @@ import PageRegister from './pages/PageRegister';
 import PageAdmin from './pages/PageAdmin';
 import PageLogin from './pages/PageLogin';
 import PageLogout from './pages/PageLogout';
-
 import { useContext } from 'react';
 import AppContext from './AppContext';
+import FadeIn from 'react-fade-in';
+import { FaSpinner } from 'react-icons/fa';
 
 function App() {
 	const { setCurrentUser, currentUser, currentUserIsInGroup } = useContext(AppContext);
@@ -32,22 +33,29 @@ function App() {
 
 	return (
 		<div className="App">
+			<h1>MERN Showcase App</h1>
+			{!currentUser.login && (
+				<FadeIn transitionDuration="800">
+					<div className="spinnerGroup"><FaSpinner className="spinner" /><span className="spinnerText"> Loading...</span></div>
+				</FadeIn>
+			)}
 			{currentUser.login && (
 				<>
-					<h1>MERN Showcase App</h1>
 					{currentUserIsInGroup('loggedInUsers') && (
 						<h2>{currentUser.firstName} {currentUser.lastName}</h2>
 					)}
-					<Nav />
-					<div className="content">
-						<Routes>
-							<Route path="/" element={<PageWelcome />} />
-							<Route path="register" element={<PageRegister />} />
-							<Route path="admin" element={<PageAdmin />} />
-							<Route path="login" element={<PageLogin />} />
-							<Route path="logout" element={<PageLogout />} />
-						</Routes>
-					</div>
+					<FadeIn transitionDuration="400">
+						<Nav />
+						<div className="content">
+							<Routes>
+								<Route path="/" element={<PageWelcome />} />
+								<Route path="register" element={<PageRegister />} />
+								<Route path="admin" element={<PageAdmin />} />
+								<Route path="login" element={<PageLogin />} />
+								<Route path="logout" element={<PageLogout />} />
+							</Routes>
+						</div>
+					</FadeIn>
 				</>
 			)}
 		</div>
