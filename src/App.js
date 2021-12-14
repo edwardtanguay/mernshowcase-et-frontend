@@ -44,7 +44,7 @@ function App() {
 					{currentUserIsInGroup('loggedInUsers') && (
 						<h2>{currentUser.firstName} {currentUser.lastName}</h2>
 					)}
-					<FadeIn transitionDuration="400">
+					<FadeIn transitionDuration="200">
 						<Nav />
 						<div className="content">
 							<Routes>
