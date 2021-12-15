@@ -166,12 +166,20 @@ body {
 			}
 		}
 		.appMessage {
-			background-color: tomato;
 			margin: 5px 0 0 0;
 			padding: 10px;
 			border-radius: 5px;
 			text-align: center;
 			cursor: pointer;
+		}
+		.appMessageError {
+			background-color: tomato;
+		}
+		.appMessageWarning {
+			background-color: yellow;
+		}
+		.appMessageSuccess {
+			background-color: lightgreen;
 		}
 	}
 }

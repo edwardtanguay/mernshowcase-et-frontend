@@ -40,9 +40,9 @@ const PageLogin = () => {
 			setLoginFormField_password('');
 			navigate('/');
 		} else {
-			const _appMessage = { kind: 'error', message: 'Bad login, please try again.'};
+			const _appMessage = { kind: 'appMessageError', message: 'Bad login, please try again.' };
 			setLoginFormField_password('');
-			setAppMessage(prev => ({...prev, ..._appMessage}));
+			setAppMessage(prev => ({ ...prev, ..._appMessage }));
 		}
 	}
 	const handle_logoutForm_logoutButton = async (e) => {

@@ -34,7 +34,7 @@ function App() {
 	}, []);
 
 	const handleClickAppMessage = () => {
-		setAppMessage(prev => ({...prev, ...{kind: 'none', message: ''}}))
+		setAppMessage(prev => ({ ...prev, ...{ kind: 'none', message: '' } }))
 	}
 
 	return (
@@ -53,7 +53,7 @@ function App() {
 					<FadeIn transitionDuration="200">
 						<Nav />
 						{appMessage.kind !== 'none' && (
-							<div className="appMessage" title="close" onClick={handleClickAppMessage}>{appMessage.message}</div>
+							<div className={`appMessage ${appMessage.kind}`} title="close" onClick={handleClickAppMessage}>{appMessage.message}</div>
 						)}
 						<div className="content">
 							<Routes>
