@@ -14,9 +14,10 @@ body {
 				li {
 					list-style: none;
 					margin: 0 10px 0 0;
-					a {
+					a, span.commandLink {
 						color: #ccc;
 						text-decoration: none;
+						cursor: pointer;
 					}
 					.active {
 						color: rgb(255, 255, 161);

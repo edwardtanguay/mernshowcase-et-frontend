@@ -14,10 +14,15 @@
 	- x make fade spinner for slow backend
 	
 - .. clean up and basic UX
-	- .. check password on login
-	- logout works at one click on 
-	- focus fields
-	- convert forms to formik and add validation
+	- x check password on login
+	- x appMesage in three kinds/colors
+... 2021-12-15
+	- /x logout works at one click on 
+	- /x focus fields
+	- .. show-password icons in password boxes (components)
+		- https://github.com/Degi100/mernshowcase-rd-frontend
+	- validation checkmarks (components)
+		- https://github.com/Degi100/mernshowcase-rd-frontend
 	- smartPlural for users, create qtools
 	- signup
 		- check if user exists already
@@ -25,31 +30,32 @@
 	- don't send hash to front
 	
 - refactor
-	- automatic redirect from http to https
+	- x automatic redirect from http to https
 		- e.g. express-sslify: https://stackoverflow.com/questions/51234023/heroku-nodejs-redirect-http-to-https
 	- implement controllers for Mongoose
 	- responsive
-	- kein hash zum Frontend schicken
+		- https://codesandbox.io/s/react-hooks-media-query-3y2kg?from-embed
 	- for forms: convert useState to useReduce
 	- user profile page: change name, password, etc.
 	- admin user management section: edit user information
 		- use same component at in user profile
-	- responsive layout
 
 - new features
+	- Netlify function for userIsInGroup (call from both frontend and backend)
 	- socket.io
 		- show logged in users
 		- live member chat
 		- automatic notification that one has been confirmed as a member
+		- interactives spiel or something like Google Docs
 	- e-mail confirmation on signup
 		- two levels: emailUnconfirmedUsers --> emailConfirmedUsers --> members
 		- node-mailer?
+		- sendGrid?
+		- Forgot my password
 	- image uploading (on user profile to upload profile image)
 	- testing (Jest and Cypress)
-	- ein schickes Chat oder interaktives Spiel für mehrere eingeloggte Users mit socket.io
-	- Netlify function for userIsInGroup (call from both frontend and backend)
-	- set up second and third frontends on Vercel and Netlify
-		- Vercel Backend?
+		- Ponicode
+	- frontend auf Vercel
 	- deploy backend and frontend to machine on Digital Ocean
 	- add ability to choose authentication method
 		- login/password with sessions/cookies

@@ -67,7 +67,7 @@ const PageLogin = () => {
 					<fieldset>
 						<div className="row">
 							<label htmlFor="loginFormField_login">Login</label>
-							<input type="text" id="loginFormField_login" value={loginFormField_login} onChange={handle_loginFormField_login} />
+							<input autoFocus type="text" id="loginFormField_login" value={loginFormField_login} onChange={handle_loginFormField_login} />
 						</div>
 						<div className="row">
 							<label htmlFor="loginFormField_password">Password</label>
