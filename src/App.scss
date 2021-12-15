@@ -148,7 +148,7 @@ body {
 			padding: 20px 0 0 0;
 		}
 		.spinnerGroup {
-				color: #777;
+			color: #777;
 			.spinner {
 				animation: spin infinite 2s linear;
 			}
@@ -164,6 +164,14 @@ body {
 					transform: rotate(360deg);
 				}
 			}
+		}
+		.appMessage {
+			background-color: tomato;
+			margin: 5px 0 0 0;
+			padding: 10px;
+			border-radius: 5px;
+			text-align: center;
+			cursor: pointer;
 		}
 	}
 }

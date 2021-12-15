@@ -14,7 +14,7 @@ import FadeIn from 'react-fade-in';
 import { FaSpinner } from 'react-icons/fa';
 
 function App() {
-	const { setCurrentUser, currentUser, currentUserIsInGroup } = useContext(AppContext);
+	const { setCurrentUser, currentUser, currentUserIsInGroup, appMessage, setAppMessage } = useContext(AppContext);
 
 	useEffect(() => {
 		(async () => {
@@ -26,10 +26,16 @@ function App() {
 			const response = await fetch(url, requestOptions);
 			if (response.ok) {
 				const data = await response.json();
+
+				console.log(data);
 				setCurrentUser(prev => ({ ...prev, ...data.user }));
 			}
 		})();
 	}, []);
+
+	const handleClickAppMessage = () => {
+		setAppMessage(prev => ({...prev, ...{kind: 'none', message: ''}}))
+	}
 
 	return (
 		<div className="App">
@@ -46,6 +52,9 @@ function App() {
 					)}
 					<FadeIn transitionDuration="200">
 						<Nav />
+						{appMessage.kind !== 'none' && (
+							<div className="appMessage" title="close" onClick={handleClickAppMessage}>{appMessage.message}</div>
+						)}
 						<div className="content">
 							<Routes>
 								<Route path="/" element={<PageWelcome />} />

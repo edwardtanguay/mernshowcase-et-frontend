@@ -1,10 +1,15 @@
-import { useContext } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useContext, useEffect } from 'react';
 import AppContext from '../AppContext';
 import { useNavigate } from 'react-router-dom';
 
 const PageLogout = () => {
-	const { setCurrentUser, currentUserIsInGroup } = useContext(AppContext);
+	const { setCurrentUser, currentUserIsInGroup, initializePage } = useContext(AppContext);
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		initializePage();
+	}, []);
 
 	const handle_logoutForm_logoutButton = async (e) => {
 		const requestOptions = {

@@ -1,10 +1,14 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import AppContext from '../AppContext';
 import { useNavigate } from 'react-router-dom';
 
 const PageRegister = () => {
-	const { setCurrentUser, currentUserIsInGroup } = useContext(AppContext);
+	const { setCurrentUser, currentUserIsInGroup, initializePage } = useContext(AppContext);
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		initializePage();
+	}, []);
 
 	const [signupFormField_login, setSignupFormField_login] = useState('');
 	const [signupFormField_password1, setSignupFormField_password1] = useState('');

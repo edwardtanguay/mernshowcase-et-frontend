@@ -10,11 +10,11 @@
 	- x deployed to Heroku/MongoDB-Atlas
 
 - fix http issue
-	- .. put on Netlify
+	- x put on Netlify
+	- x make fade spinner for slow backend
 	
 - .. clean up and basic UX
 	- .. check password on login
-	- concurrently
 	- logout works at one click on 
 	- focus fields
 	- convert forms to formik and add validation
@@ -22,6 +22,7 @@
 	- signup
 		- check if user exists already
 		- check if passwords are the same
+	- don't send hash to front
 	
 - refactor
 	- automatic redirect from http to https

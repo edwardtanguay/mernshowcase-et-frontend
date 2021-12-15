@@ -2,12 +2,13 @@ import { useContext, useState, useEffect } from 'react';
 import AppContext from '../AppContext';
 
 const PageAdmin = () => {
-	const { currentUserIsInGroup } = useContext(AppContext);
+	const { currentUserIsInGroup, initializePage } = useContext(AppContext);
 	const [notYetApprovedUsers, setNotYetApprovedUsers] = useState([]);
 
 	useEffect(() => {
 		(async () => {
 			loadNotYetApprovedUsers();
+			initializePage();
 		})();
 	}, []);
 

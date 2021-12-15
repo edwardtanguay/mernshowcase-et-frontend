@@ -1,8 +1,14 @@
-import { useContext } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useContext, useEffect } from 'react';
 import AppContext from '../AppContext';
 
 const PageWelcome = () => {
-	const { currentUserIsInGroup } = useContext(AppContext);
+	const { currentUserIsInGroup, initializePage } = useContext(AppContext);
+
+	useEffect(() => {
+		initializePage();
+	}, []);
+
 	return (
 		<>
 			{currentUserIsInGroup('notYetApprovedUsers') && (
@@ -15,7 +21,7 @@ const PageWelcome = () => {
 			)}
 			{currentUserIsInGroup('loggedOutUsers') && (
 				<>
-<p>Welcome to this site.</p>
+					<p>Welcome to this site.</p>
 				</>
 			)}
 			{currentUserIsInGroup('members') && (
