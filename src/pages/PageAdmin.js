@@ -10,7 +10,7 @@ const PageAdmin = () => {
 			loadNotYetApprovedUsers();
 			initializePage();
 		})();
-	}, []);
+	}, [initializePage]);
 
 	const handle_approveUserButton = async (id) => {
 		const requestOptions = {

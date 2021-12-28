@@ -9,7 +9,7 @@ const PageRegister = () => {
 
 	useEffect(() => {
 		initializePage();
-	}, []);
+	}, [initializePage]);
 
 	const [signupFormField_login, setSignupFormField_login] = useState('');
 	const [signupFormField_password1, setSignupFormField_password1] = useState('');
@@ -85,12 +85,12 @@ const PageRegister = () => {
 		}
 	}
 
-	const handlePasswordRegister2 = (e) => {
-		const _passwordRegister2 = e.target.value;
-		const passwordformat = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
-		setSignupFormField_password2IsValid(_passwordRegister2);
-		setSignupFormField_password2IsValid(passwordformat.test(_passwordRegister2));
-	};
+	// const handlePasswordRegister2 = (e) => {
+	// 	const _passwordRegister2 = e.target.value;
+	// 	const passwordformat = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+	// 	setSignupFormField_password2IsValid(_passwordRegister2);
+	// 	setSignupFormField_password2IsValid(passwordformat.test(_passwordRegister2));
+	// };
 
 	return (
 		<>
