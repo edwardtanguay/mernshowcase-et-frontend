@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useState, useEffect } from 'react';
 import AppContext from '../AppContext';
 
@@ -10,7 +11,7 @@ const PageAdmin = () => {
 			loadNotYetApprovedUsers();
 			initializePage();
 		})();
-	}, [initializePage]);
+	}, []);
 
 	const handle_approveUserButton = async (id) => {
 		const requestOptions = {
