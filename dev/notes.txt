@@ -35,6 +35,7 @@
 	- implement controllers for Mongoose
 	- responsive
 		- https://codesandbox.io/s/react-hooks-media-query-3y2kg?from-embed
+		- resolve autofocus (shows the keyboard)
 	- for forms: convert useState to useReduce
 	- user profile page: change name, password, etc.
 	- admin user management section: edit user information
