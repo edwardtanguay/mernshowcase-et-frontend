@@ -40,6 +40,7 @@ function App() {
 	return (
 		<div className="App">
 			<h1>MERN Showcase App</h1>
+			<div>test: [{process.env.REACT_APP_BACKEND_URL}] </div>
 			{!currentUser.login && (
 				<FadeIn transitionDuration="800">
 					<div className="spinnerGroup"><FaSpinner className="spinner" /><span className="spinnerText"> Loading...</span></div>
